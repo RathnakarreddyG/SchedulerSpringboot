@@ -49,7 +49,7 @@ public class EmployeeService {
 	}
 
 	@Scheduled(cron = "0/30 * * * * ?") // every 30 Seconds
-	@Scheduled(cron = "0 0 12 * * ?") // every month 1st day at 12 AM)
+	@Scheduled(cron = "0 0 12 * * ?") // every day 12AM)
 	public void employeeScheduler() {
 		List<Employee> employee = employeeDao.findAll().stream().filter(emp -> emp.isBlocked() == false).toList();
 		employee.forEach(employeeInfo -> {
